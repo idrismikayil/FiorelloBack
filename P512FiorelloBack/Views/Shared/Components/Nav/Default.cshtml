@@ -1,5 +1,5 @@
-﻿@*@model NavVM*@
-@model Layout
+﻿@model NavVM
+@*@model Layout*@
 
 <nav class="">
     <div class="container">
@@ -258,18 +258,18 @@
                         </i>
                         <div class="cart hoverBlock shopItem d-flex align-items-center">
                             <span id="cart" class="me-1">CART</span>
-                            <div class="price">($ <span class="totalPrice">0</span>)</div>
+                            <div class="price">($ <span class="totalPrice">@ViewBag.TotalPrice</span>)</div>
                         </div>
-                        <div class="flower-container navbar-dropdown">
-                            <div class="flower-body">
-                                <div id="flower-list">
+                        <div class="flower-container navbar-dropdown" style="width: 200px">
+                            <div class="flower-body" style="width: 200px">
+                                <div id="flower-list" style="width: 200px">
 
-                             @* @foreach (var item in Model.Basket)
+                              @foreach (var item in Model.Basket)
                                {
-                                   <div>
+                                   <div style="width: 200px">
                                        @item.Flower.Name <span>$ @item.Flower.Price</span>
                                    </div>
-                               }*@
+                               }
                                 </div>
                                
                                 <div class="
@@ -281,7 +281,7 @@
                                     <span>TOTAL:</span>
                                     <div class="priceWithCurrency">
                                         <span>$</span>
-                                        <span class="totalPriceList">0</span>
+                                        <span class="totalPriceList">@ViewBag.TotalPrice</span>
                                     </div>
                                 </div>
                             </div>
