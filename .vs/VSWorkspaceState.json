@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\P512FiorelloBack",
-    "\\P512FiorelloBack\\wwwroot",
-    "\\P512FiorelloBack\\wwwroot\\assets",
-    "\\P512FiorelloBack\\wwwroot\\assets\\js"
+    "\\P512FiorelloBack\\Views",
+    "\\P512FiorelloBack\\Views\\Flower",
+    "\\P512FiorelloBack\\Views\\Shared",
+    "\\P512FiorelloBack\\Views\\Shared\\Components",
+    "\\P512FiorelloBack\\Views\\Shared\\Components\\Flower"
   ],
-  "SelectedNode": "\\P512FiorelloBack\\wwwroot\\assets\\js\\index.js",
+  "SelectedNode": "\\P512FiorelloBack\\Views\\Shared\\Components\\Flower\\Default.cshtml",
   "PreviewInSolutionExplorer": false
 }

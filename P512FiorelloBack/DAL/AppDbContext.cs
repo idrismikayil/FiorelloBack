@@ -13,7 +13,6 @@ namespace P512FiorelloBack.DAL
         {
 
         }
-
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Expert> Experts { get; set; }
         public DbSet<Position> Positions { get; set; }
@@ -22,7 +21,6 @@ namespace P512FiorelloBack.DAL
         public DbSet<FlowerCategory> FlowerCategories{ get; set; }
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<FlowerImage> FlowerImages { get; set; }
-
         public DbSet<Layout> Layouts { get; set; }
     }
 }

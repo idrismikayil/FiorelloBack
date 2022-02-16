@@ -1,4 +1,5 @@
-﻿@model Layout
+﻿@*@model NavVM*@
+@model Layout
 
 <nav class="">
     <div class="container">
@@ -253,7 +254,7 @@
                   align-items-center
                 ">
                         <i class="fas shopItem fa-shopping-bag me-3">
-                            <p class="countProduct">0</p>
+                            <p class="countProduct">@ViewBag.Count</p>
                         </i>
                         <div class="cart hoverBlock shopItem d-flex align-items-center">
                             <span id="cart" class="me-1">CART</span>
@@ -261,7 +262,16 @@
                         </div>
                         <div class="flower-container navbar-dropdown">
                             <div class="flower-body">
-                                <div id="flower-list"></div>
+                                <div id="flower-list">
+
+                             @* @foreach (var item in Model.Basket)
+                               {
+                                   <div>
+                                       @item.Flower.Name <span>$ @item.Flower.Price</span>
+                                   </div>
+                               }*@
+                                </div>
+                               
                                 <div class="
                         totalPriceDiv
                         d-flex

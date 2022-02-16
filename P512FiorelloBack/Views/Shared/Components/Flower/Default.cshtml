@@ -13,7 +13,8 @@
         <div class="flower-body text-center">
             <p class="flower-name">@flower.Name</p>
             <div class="flowers-title">
-                <div class="addToCart" data-id="1" style="display: inline-block;"><a asp-controller="Basket" asp-action="AddToBasket" asp-route-id="@flower.Id">Add To Cart</a></div>
+                <div class="addToCart" data-id="1" style="display: inline-block;">
+                    <a asp-controller="Basket" asp-action="AddToBasket" asp-route-id="@flower.Id">Add To Cart</a></div>
                 <div class="price-container " style="display: inline-block;">
                     @if (flower.DiscountPrice == null)
                     {

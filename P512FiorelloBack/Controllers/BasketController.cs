@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using P512FiorelloBack.DAL;
 using P512FiorelloBack.Models;
+using P512FiorelloBack.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,28 +24,52 @@ namespace P512FiorelloBack.Controllers
             Flower flower = await _context.Flowers.FindAsync(id);
             if (flower == null) return RedirectToAction("Index", "Home");
 
-            List<Flower> basket;
+            List<BasketVM> basket;
 
             var basketJson = Request.Cookies["basket"];
             if (string.IsNullOrEmpty(basketJson))
             {
-                basket = new List<Flower>();
+                basket = new List<BasketVM>();
             }
             else 
             {
-                basket = JsonConvert.DeserializeObject<List<Flower>>(basketJson);
+                basket = JsonConvert.DeserializeObject<List<BasketVM>>(basketJson);
             }
 
-            basket.Add(flower);
+            var existFlower = basket.Find(b => b.Flower.Id == id);
+
+            if (existFlower == null)
+            {
+                basket.Add(new BasketVM { Flower = flower});
+            }
+            else
+            {
+                existFlower.Count++;
+            }
 
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult GetBasket(int id)
+        public async Task<IActionResult> GetBasket(int id)
         {
             var basketJson = Request.Cookies["basket"];
-            return Content(basketJson);
+            List<BasketVM> basket = JsonConvert.DeserializeObject<List<BasketVM>>(basketJson);
+            List<BasketVM> newBasket = new List<BasketVM>();
+
+            foreach (var item in basket)
+            {
+                Flower flower = await _context.Flowers.FindAsync(item.Flower.Id);
+                if (flower == null)
+                {
+                    continue;
+                }
+                newBasket.Add(new BasketVM { Flower = flower, Count = item.Count });
+            }
+
+            Response.Cookies.Append("bakset", JsonConvert.SerializeObject(newBasket));
+
+            return Content(JsonConvert.SerializeObject(newBasket));
         }
 
     }

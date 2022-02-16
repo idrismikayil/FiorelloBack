@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using P512FiorelloBack.DAL;
+using P512FiorelloBack.Models;
+using P512FiorelloBack.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace P512FiorelloBack.ViewComponents
@@ -15,7 +20,13 @@ namespace P512FiorelloBack.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var layout = await _context.Layouts.FirstOrDefaultAsync();
+            Layout layout = await _context.Layouts.FirstOrDefaultAsync();
+
+            //var basketJson = Request.Cookies["basket"];
+            //var basket = JsonConvert.DeserializeObject<List<BasketVM>>(basketJson);
+            //ViewBag.Count = basket.Sum(b => b.Count);
+
+            //return View(new NavVM {Layout = layout, Basket = basket });
 
             return View(layout);
         }
