@@ -1,0 +1,13 @@
+﻿@model List<Flower>
+
+    @if (Model.Count>0)
+    {
+        foreach (var flower in Model)
+        {
+            <li>@flower.Name</li>
+        }
+    }
+    else
+    {
+        <li>Not Found</li>
+    }

@@ -1,0 +1,234 @@
+﻿@model Flower
+@{
+    ViewData["Title"] = "Detail";
+    List<Flower> related = ViewBag.Related;
+}
+
+@section Css{ 
+    <link rel="stylesheet" href="~/assets/css/product.css" />
+}
+
+@section Scripts{ 
+    <script src="~/assets/js/product.js" defer></script>
+}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Product List</h1>
+                <span>Where flowers are our inspiration</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="product" class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 images">
+                    <div class="customFlex">
+                        <div class="col-lg-3 col-12">
+                            @foreach (FlowerImage item in Model.FlowerImages)
+                            {
+                                <img class="My" src="~/assets/images/@item.Name" alt="" />
+                            }
+
+                        </div>
+                        <div class="col-lg-9 col-12">
+                            <img src="~/assets/images/@Model.MainImage" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12 productInfo">
+                    <div class="productName">
+                        <p class="">@Model.Name</p>
+                        @if (Model.DiscountPrice == null)
+                        {
+
+
+                            <span>$@Model.Price</span>
+                        }
+                        else
+                        {
+                            <span style="text-decoration:line-through">$@Model.Price</span><br />
+                            <span>$@Model.DiscountPrice</span>
+                        }
+                        <div class="productBody">
+                            <p>
+                                @Model.Desc
+                            </p>
+                            <div class="quantity">
+                                <div class="quantity-body">
+                                    <p>Quantity</p>
+                                    <div class="size">
+                                        <i class="fas fa-arrow-left mx-1"></i>
+                                        <span class="count mx-1">0</span>
+                                        <i class="fas fa-arrow-right mx-1"></i>
+                                    </div>
+                                </div>
+                                <button>ADD TO CART</button>
+                            </div>
+                            <div class="productMeta d-flex flex-column">
+                                <span>SKU: <span>@Model.SKUCode</span></span>
+                                <span>Tags: <span>Llilies, Orchids</span></span>
+                                <span>Categories: <span>
+                                     @foreach (FlowerCategory flowerCategory in Model.FlowerCategories)
+                                     {
+                                         @(flowerCategory.Category.Name + " ")
+                                     }
+
+                                     </span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cards" class="mt-5">
+        <div class="container">
+            <ul class="col-12 list-unstyled">
+                <button class="productButton description active">
+                    DESCRIPTION
+                </button>
+                <button class="productButton information">
+                    ADDITIONAL INFORMATION
+                </button>
+                <button class="productButton review">REVIEWS (2)</button>
+            </ul>
+        </div>
+        <div class="cardsBody">
+            <div class="container">
+                <div class="cards descriptionContent">
+                    <p class="descriptionName">The power of flowers</p>
+                    <p>
+                       @Model.Desc
+                    </p>
+                </div>
+                <div class="cards informationContent d-none">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Weight:</th>
+                                <td>@Model.Weight</td>
+                            </tr>
+                            <tr class="
+                      woocommerce-product-attributes-item
+                      woocommerce-product-attributes-item--dimensions
+                    ">
+                                <th class="woocommerce-product-attributes-item__label">
+                                    Dimensions:
+                                </th>
+                                <td class="woocommerce-product-attributes-item__value">
+                                    @Model.Dimension cm
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="cards reviews d-none">
+                    <p class="header">Reviews</p>
+                    <div class="col-12 d-flex pb-2">
+                        <div class="personImg">
+                            <img src="~/assets/images/productPerson1.png" alt="" />
+                        </div>
+                        <div class="personBody mx-3">
+                            <div class="person-name d-flex my-4">
+                                <p>JOSHUA GARCIA</p>
+                                <p class="mx-2">27.04.208</p>
+                            </div>
+                            <div class="person-description my-3">
+                                <p style="font-family: Lora, serif">
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+                                    Theme natoque penatibus et magnis dis parturient montes,
+                                    nascetur ridiculus mus.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-flex">
+                        <div class="personImg">
+                            <img src="~/assets/images/productPerson2.png" alt="" />
+                        </div>
+                        <div class="personBody mx-3">
+                            <div class="person-name d-flex my-3">
+                                <p>JOAN STANLEY</p>
+                                <p class="mx-2">27.04.208</p>
+                            </div>
+                            <div class="person-description my-3">
+                                <p style="font-family: Lora, serif">
+                                    Etiam rhoncus. Maecenas tempus, tellus eget condimentum
+                                    rhoncus, sem quam semper libero, sit amet adipiscing sem
+                                    neque sed ipsum. Nam quam nunc, blandit vel, luctus
+                                    pulvinar, hendrerit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addReview mt-3">
+                        <p>Add a review</p>
+                    </div>
+                    <form class="col-12 form">
+                        <p class="p-0 m-0">
+                            Your email address will not be published. Required fields are
+                            marked *
+                        </p>
+                        <p>Your review *</p>
+                        <textarea required name="review" cols="45" rows="8"></textarea>
+                        <p class="pb-0 mt-1 mb-0">Name *</p>
+                        <input required type="text" />
+                        <p class="pb-0 mt-1 mb-0">Email *</p>
+                        <input required type="email" />
+                        <input type="checkbox" />
+                        <p class="mt-2">
+                            Save my name, email, and website in this browser for the next
+                            time I comment.
+                        </p>
+                        <input type="submit" value="SUBMIT" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="related-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p>RELATED PRODUCTS</p>
+                </div>
+                <div class="col-12 products">
+                    @await Html.PartialAsync("_FlowersPartialView", related)
+                    @*@foreach (Flower item in ViewBag.Related)
+                    {
+                        <div class="flowers-item">
+                            <div class="img">
+                                <img src="~/assets/images/@item.MainImage" alt="" />
+                            </div>
+                            <div class="flower-body text-center">
+                                <p class="flower-name">@item.Name</p>
+                                <div class="price-div">
+                                    @if (item.DiscountPrice == null)
+                                    {
+                                        <span>$@item.Price</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-decoration-line-through">$@item.Price</span>
+                                        <span class="price text-dark"> $@item.DiscountPrice</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    }*@
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

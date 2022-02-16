@@ -1,0 +1,30 @@
+﻿@model List<Flower>
+@foreach (Flower flower in Model)
+{
+    <div class="flowers-item @foreach (FlowerCategory flowerCategory in flower.FlowerCategories)
+	{
+                            @(flowerCategory.Category.Name.ToLower() + " ")
+	}">
+        <div class="img">
+            <a asp-action="detail" asp-controller="flower" asp-route-id="@flower.Id" asp-route-categoryId="@flower.FlowerCategories.FirstOrDefault().CategoryId">
+                <img src="~/assets/images/@flower.MainImage" alt="" />
+            </a>
+        </div>
+        <div class="flower-body text-center">
+            <p class="flower-name">@flower.Name</p>
+            <div class="flowers-title">
+                <div class="addToCart" data-id="1" style="display: inline-block;">Add To Cart</div>
+                <div class="price-container " style="display: inline-block;">
+                    @if (flower.DiscountPrice == null)
+                    {
+                        <span class="price">$@flower.Price</span>
+                    }
+                    else
+                    {
+                        <span class="price"><span style="text-decoration:line-through">$@flower.Price</span>, $@flower.DiscountPrice</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

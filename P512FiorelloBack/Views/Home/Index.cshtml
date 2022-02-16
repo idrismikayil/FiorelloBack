@@ -1,0 +1,258 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Main Page";
+}
+
+@section Css{
+
+    <link rel="stylesheet" href="~/assets/css/stle.css" />
+
+}
+@section Scripts{
+    <script src="~/assets/js/index.js" defer></script>
+}
+
+<header>
+    <div class="row header-slider owl-carousel m-0" style="z-index: 0">
+        @foreach (Slider slider in Model.Sliders)
+        {
+            <div class="img img1">
+                <img src="~/assets/images/@slider.Image" alt="" />
+                <div class="header-text col-5 col-lg-3">
+                    @Html.Raw(slider.Title)
+                    <p class="header-2">
+                        @slider.Desc
+                    </p>
+                    <img src="~/assets/images/@slider.SignatureImage" alt="" />
+                </div>
+            </div>
+        }
+    </div>
+</header>
+
+<!-- Header End -->
+
+<main>
+    <section id="flower" class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row product-type align-items-center">
+                        <ul class="d-flex list-unstyled col-lg-6 justify-content-between">
+                            <li onclick="sortClick(this)" style="color:#f34f3f;cursor:pointer">ALL</li>
+                            @foreach (Category category in Model.Categories)
+                            {
+                                <li style="cursor:pointer" onclick="sortClick(this, '@category.Name.ToLower()')">@category.Name.ToUpper()</li>
+                            }
+                        </ul>
+                        <div class="col-6 categories">
+                            <div class="d-flex align-items-center">
+                                <p>CATEGORIES</p>
+                                <i class="fas fa-sort-down mx-3 mb-2"></i>
+                            </div>
+                        </div>
+                        <div class="
+                    filter
+                    col-6
+                    d-flex
+                    justify-content-end
+                    align-items-center
+                  ">
+                            <p>FILTER</p>
+                            <i class="fas fa-sort-down mx-3 mb-2"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-2 categories-dropdown">
+                    <ul class="list-unstyled">
+                        <li onclick="sortClick(this)" style="color:#f34f3f;cursor:pointer">ALL</li>
+                        @foreach (Category category in Model.Categories)
+                        {
+                            <li style="cursor:pointer" onclick="sortClick(this, '@category.Name.ToLower()')">@category.Name.ToUpper()</li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="flowers col-lg-12 mt-4">
+                    @await Component.InvokeAsync("Flower")
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="surprise" class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 popUp">
+                    <img src="~/assets/images/surpriceSectionImage.jpeg" alt="" />
+                    <i class="fas fa-play fa-2x"></i>
+                    <div class="circle"></div>
+                </div>
+                <div class="col-lg-6 col-12 surprise-content">
+                    <p class="header">Surprise Your <span>Valentine!</span></p>
+                    <p class="header">Let Us arrange a smile.</p>
+                    <p class="">
+                        Where flowers are our inspiration to create lasting memories.
+                    </p>
+                    <p style="padding-top: 0" class="">Whatever the occasion...</p>
+                    <div class="list-item-holder d-flex align-items-center pt-4">
+                        <img src="~/assets/images/heart-icon.png" alt="" />
+                        <p class="mx-3">Hand picked just for you</p>
+                    </div>
+                    <div class="list-item-holder d-flex align-items-center pt-3">
+                        <img src="~/assets/images/heart-icon.png" alt="" />
+                        <p class="mx-3">Unique flower arrangements</p>
+                    </div>
+                    <div class="list-item-holder d-flex align-items-center pt-3">
+                        <img src="~/assets/images/heart-icon.png" alt="" />
+                        <p class="mx-3">Best way to say you care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="flower-experts" class="">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h2 style="font-size: 38px; font-weight: 400">Flower Experts</h2>
+                </div>
+                <div class="col-lg-7 text-center mt-2">
+                    <p>
+                        A perfect blend of creativity, energy, communication, happiness
+                        and love. Let us arrange a smile for you.
+                    </p>
+                </div>
+                <div class="members mt-5">
+                    @foreach (Expert expert in Model.Experts)
+                    {
+                        <div class="member">
+                            <img src="~/assets/images/@expert.Image" alt="xanimin shekili" />
+                            <h6>@expert.Fullname</h6>
+                            <span class="">@expert.Position.Name</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center pb-5">
+                    <h3 style="color: #ffffff">Join The Colorful Bunch!</h3>
+                </div>
+                <div id="form-subscribe" class="col-lg-6 col-12">
+                    <input type="email"
+                           name="email"
+                           class=""
+                           placeholder="Email Address" />
+                    <input type="submit" class="" name="" id="" value="SUBSCRIBE" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <h2>From Our Blog</h2>
+                </div>
+                <div class="col-lg-7 text-center mt-2 mb-5">
+                    <p>
+                        A perfect blend of creativity, energy, communication, happiness
+                        and love. Let us arrange a smile for you.
+                    </p>
+                </div>
+                <div class="blogs">
+                    <div class="blog-element">
+                        <div class="img">
+                            <img src="~/assets/images/flowerPower.jpeg" alt="" />
+                        </div>
+                        <div class="blog-element__body text-center">
+                            <h5 class="mt-2">
+                                <a href="">Flower Power</a>
+                            </h5>
+                            <p itemprop="description" class="mkdf-post-excerpt">
+                                Class aptent taciti sociosqu ad litora torquent per conubia
+                                nostra, per
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-element">
+                        <div class="img img2">
+                            <img src="~/assets/images/localFlorists.jpeg" alt="" />
+                        </div>
+                        <div class="blog-element__body text-center">
+                            <h5 class="mt-2">
+                                <a href="">Local Florists</a>
+                            </h5>
+                            <p itemprop="description" class="mkdf-post-excerpt">
+                                Class aptent taciti sociosqu ad litora torquent per conubia
+                                nostra, per
+                            </p>
+                        </div>
+                    </div>
+                    <div class="blog-element">
+                        <div class="img img3">
+                            <img src="~/assets/images/flowerBeauty.jpeg" alt="" />
+                        </div>
+                        <div class="blog-element__body text-center">
+                            <h5 class="mt-2">
+                                <a href="">FLower Beauty</a>
+                            </h5>
+                            <p itemprop="description" class="mkdf-post-excerpt">
+                                Class aptent taciti sociosqu ad litora torquent per conubia
+                                nostra, per
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="slider">
+        <div class="container">
+            <div class="
+              row
+              justify-content-center
+              main-slider
+              owl-carousel owl-theme
+            ">
+                <div class="col-lg-6 col-sm-8 col-10 slider-item text-center">
+                    <div class="img my-3">
+                        <img src="~/assets/images/sliderImg1.png" alt="" />
+                    </div>
+                    <div class="slider-body text-center">
+                        <p class="my-3">
+                            Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                            Cras dapibus lingua.
+                        </p>
+                        <span>ANNA BARNES</span>
+                        <span style="color: #afafaf">Florist</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-10 slider-item text-center">
+                    <div class="img my-3">
+                        <img src="~/assets/images/sliderImg2.png" alt="" />
+                    </div>
+                    <div class="slider-bod text-center">
+                        <p class="my-3">
+                            Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                            Cras dapibus lingua.
+                        </p>
+                        <span>ANNA BARNES</span>
+                        <span style="color: #afafaf">Florist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- MAIN END -->
