@@ -451,3 +451,10 @@ C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\P512FiorelloBack.dll
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\P512FiorelloBack.pdb
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\P512FiorelloBack.genruntimeconfig.cache
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\_ViewStart.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Home\Index.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\_ViewImports.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Category\Index.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Category\Create.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Category\Detail.cshtml.g.cs

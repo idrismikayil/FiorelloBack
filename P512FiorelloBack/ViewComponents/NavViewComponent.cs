@@ -23,7 +23,15 @@ namespace P512FiorelloBack.ViewComponents
             Layout layout = await _context.Layouts.FirstOrDefaultAsync();
 
             var basketJson = Request.Cookies["basket"];
-            var basket = JsonConvert.DeserializeObject<List<BasketVM>>(basketJson);
+            List<BasketVM> basket;
+            if (string.IsNullOrEmpty(basketJson))
+            {
+                basket = new List<BasketVM>();
+            }
+            else
+            {
+                basket = JsonConvert.DeserializeObject<List<BasketVM>>(basketJson);
+            }
             ViewBag.Count = basket.Sum(b => b.Count);
             ViewBag.TotalPrice = basket.Sum(b => (b.Flower.Price * b.Count));
 

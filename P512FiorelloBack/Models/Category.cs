@@ -12,6 +12,7 @@ namespace P512FiorelloBack.Models
         [Required]
         [StringLength(maximumLength:20)]
         public string Name { get; set; }
+        public string Description { get; set; } 
         public List<FlowerCategory> FlowerCategories { get; set; }
     }
 }
