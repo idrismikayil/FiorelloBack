@@ -119,8 +119,6 @@ $(document).ready(function () {
                 $("#search-result").append(response);
             }
         });
-
-
     });
 });
 

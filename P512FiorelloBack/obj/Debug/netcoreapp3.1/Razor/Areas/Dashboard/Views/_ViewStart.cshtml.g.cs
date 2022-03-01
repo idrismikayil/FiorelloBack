@@ -28,13 +28,13 @@ using P512FiorelloBack.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\Areas\Dashboard\Views\_ViewImports.cshtml"
-using P512FiorelloBack.ViewModels;
+using P512FiorelloBack.Areas.Dashboard.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Areas/Dashboard/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"831ebf931e860c946676f9cf25f4797e0450bedc", @"/Areas/Dashboard/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b254af245082f8b89460f03b70af82d839a47e66", @"/Areas/Dashboard/Views/_ViewImports.cshtml")]
     public class Areas_Dashboard_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

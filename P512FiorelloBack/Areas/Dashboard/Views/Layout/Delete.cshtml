@@ -1,0 +1,32 @@
+﻿@model Layout
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <ul>
+                      <li>
+                      Logo:<br>
+                      <img src="~/assets/images/@Model.Logo" style="width: 200px; border-radius: 0%;" />
+                  </li><br><br>
+                  <li>
+                      Instagram URL: @Model.Intagram
+                  </li>
+                   <li>
+                      Facebook URL: @Model.Facebook
+                  </li>
+                  </ul>
+                   <p>Eminsinizmi ?</p>
+                  <form method="post" asp-action="Delete"><button class="btn btn-secondary" type="submit">Submit</button></form>
+                  <a asp-action="Index">Cancel</a>
+                </div>
+              </div>
+            </div>
+             </div>
+              </div>
+            </div>

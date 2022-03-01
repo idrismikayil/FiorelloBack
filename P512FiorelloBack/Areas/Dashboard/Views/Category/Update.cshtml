@@ -1,0 +1,45 @@
+﻿@model Category
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+      <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Update Category</h4>
+                  
+                  <form method="post" class="forms-sample" asp-controller="Category" asp-action="Update">
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Name</label>
+                      <input asp-for="@Model.Name" class="form-control" placeholder="Name" >
+                      <span asp-validation-for="@Model.Description"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Description</label>
+                      <input asp-for="@Model.Description" class="form-control"  placeholder="Email">
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+             </div>
+           </div>
+          </div>
+         </div>
+         @section Scripts{
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+
+         <script>
+    ClassicEditor
+        .create( document.querySelector( '#Description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+         }

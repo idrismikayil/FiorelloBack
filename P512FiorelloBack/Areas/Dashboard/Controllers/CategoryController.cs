@@ -30,7 +30,6 @@ namespace P512FiorelloBack.Areas.Dashboard.Controllers
             Category category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound();
             return View(category);  
-            
         }
 
         public IActionResult Create() 
@@ -48,6 +47,48 @@ namespace P512FiorelloBack.Areas.Dashboard.Controllers
             }
 
             await _context.Categories.AddAsync(category);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+
+        public async Task<IActionResult> Update(int id)
+        {
+            Category category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound();
+            return View(category);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int id, Category category)
+        {
+            if (!ModelState.IsValid) return View();
+            if (category.Id != id) return BadRequest();
+            bool isExist = await _context.Categories.AnyAsync(c => c.Id == id);
+            if (!isExist) return NotFound();
+
+            _context.Categories.Update(category);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            Category category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound();
+            return View(category);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            Category category =await _context.Categories.FindAsync(id);
+            _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }

@@ -1,0 +1,53 @@
+﻿@model Layout
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+      <div class="main-panel">        
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Update Category</h4>
+                  
+                  <form class="forms-sample" method="post" asp-controller="Layout" asp-action="Update" enctype="multipart/form-data">
+                           
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Image</label>
+                                <input accept="image/*" asp-for="ImageFile" class="form-control" placeholder="Image">
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                            </div> 
+                             <div class="form-group">
+                                <label for="exampleInputUsername1">Instagram URL</label>
+                                <input asp-for="Intagram" class="form-control" placeholder="Instagram">
+                                <span asp-validation-for="Intagram" class="text-danger"></span>
+                            </div>
+                             <div class="form-group">
+                                <label for="exampleInputUsername1">Facebook URL</label>
+                                <input asp-for="Facebook" class="form-control" placeholder="Facebook">
+                                <span asp-validation-for="Facebook" class="text-danger"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2"> Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                </div>
+              </div>
+             </div>
+           </div>
+          </div>
+         </div>
+         @section Scripts{
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+
+         <script>
+    ClassicEditor
+        .create( document.querySelector( '#Description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+         }
