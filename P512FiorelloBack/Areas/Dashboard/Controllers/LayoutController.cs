@@ -80,7 +80,21 @@ namespace P512FiorelloBack.Areas.Dashboard.Controllers
         {
             if (!ModelState.IsValid) return View();
             if (layout.Id != id) return BadRequest();
-            bool isExist = await _context.Layouts.AnyAsync(c => c.Id == id);
+
+            if (!layout.ImageFile.IsSupported("image"))
+            {
+                ModelState.AddModelError(nameof(Layout.ImageFile), "File type is unsupported, please select image");
+                return View();
+            }
+            if (layout.ImageFile.IsGreatergivenMb(1))
+            {
+                ModelState.AddModelError(nameof(Layout.ImageFile), "File size cannot be greater than 1 mb");
+                return View();
+            }
+
+            layout.Logo = FileUtils.Create(FileConstants.ImagePath, layout.ImageFile);
+            
+            bool isExist = await _context.Layouts.AnyAsync(l => l.Id == id);
             if (!isExist) return NotFound();
 
             _context.Layouts.Update(layout);
