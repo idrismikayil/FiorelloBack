@@ -7,9 +7,23 @@
   <ItemGroup>
     <Compile Remove="Migrations\20220206141353_createdFlowerImagesAndCampaignsTables.cs" />
     <Compile Remove="Migrations\20220206141353_createdFlowerImagesAndCampaignsTables.Designer.cs" />
+    <Compile Remove="Migrations\20220219144636_Desc.cs" />
+    <Compile Remove="Migrations\20220219144636_Desc.Designer.cs" />
+    <Compile Remove="Migrations\20220306130933_AddUserTable.cs" />
+    <Compile Remove="Migrations\20220306130933_AddUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20220306131837_AddUserTable.cs" />
+    <Compile Remove="Migrations\20220306131837_AddUserTable.Designer.cs" />
+    <Compile Remove="Migrations\20220306132333_InitialCreate–IgnoreChanges.cs" />
+    <Compile Remove="Migrations\20220306132333_InitialCreate–IgnoreChanges.Designer.cs" />
+    <Compile Remove="Migrations\20220306132429_user.cs" />
+    <Compile Remove="Migrations\20220306132429_user.Designer.cs" />
+    <Compile Remove="Migrations\20220309192813_test.cs" />
+    <Compile Remove="Migrations\20220309192813_test.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
@@ -17,6 +31,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="MimeKit" Version="3.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using P512FiorelloBack.Constants;
 using P512FiorelloBack.DAL;
 using P512FiorelloBack.Models;
 using System.Collections.Generic;
@@ -8,6 +10,8 @@ using System.Threading.Tasks;
 namespace P512FiorelloBack.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
+    [Authorize(Roles = RoleConstants.Admin)]
+
     public class CategoryController : Controller
 
     {

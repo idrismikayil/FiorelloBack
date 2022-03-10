@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using P512FiorelloBack.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace P512FiorelloBack.DAL
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<User>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
         {

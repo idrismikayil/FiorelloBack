@@ -246,13 +246,19 @@
                             
                         </ul>
                     </div>
-                    <div class="
-                  shop
-                  hoverBlock
-                  d-flex
-                  justify-content-around
-                  align-items-center
-                ">
+                    <div class="col-lg-2">
+
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a class="btn btn-primary" asp-controller="Account" asp-action="Login">Signin</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" asp-controller="Account" asp-action="Logout">Logout</a>
+                    }
+
+                </div>
+                    @*<div class="shop hoverBlock d-flex justify-content-around align-items-center">
                         <i class="fas shopItem fa-shopping-bag me-3">
                             <p class="countProduct">@ViewBag.Count</p>
                         </i>
@@ -272,12 +278,7 @@
                                }
                                 </div>
                                
-                                <div class="
-                        totalPriceDiv
-                        d-flex
-                        align-items-center
-                        justify-content-between
-                      ">
+                                <div class=" totalPriceDiv d-flex align-items-center justify-content-between">
                                     <span>TOTAL:</span>
                                     <div class="priceWithCurrency">
                                         <span>$</span>
@@ -286,7 +287,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>

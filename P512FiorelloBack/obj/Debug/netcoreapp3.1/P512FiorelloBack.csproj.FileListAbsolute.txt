@@ -469,3 +469,17 @@ C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Layout\Create.cshtml.g.cs
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Layout\Update.cshtml.g.cs
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Layout\Delete.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\Index.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\GetRoles.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\AddRole.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\ChangePassword.cshtml.g.cs

@@ -14488,8 +14488,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\User\\ChangePassword.cshtml",
+      "TargetPath": "Areas\\Dashboard\\Views\\User\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Views\\Account\\Register.cshtml",
+      "TargetPath": "Views\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\User\\Index.cshtml",
+      "TargetPath": "Areas\\Dashboard\\Views\\User\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\Slider\\Create.cshtml",
       "TargetPath": "Areas\\Dashboard\\Views\\Slider\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\User\\GetRoles.cshtml",
+      "TargetPath": "Areas\\Dashboard\\Views\\User\\GetRoles.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14500,6 +14520,11 @@
     {
       "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\Category\\Update.cshtml",
       "TargetPath": "Areas\\Dashboard\\Views\\Category\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14530,6 +14555,11 @@
     {
       "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\Home\\Index.cshtml",
       "TargetPath": "Areas\\Dashboard\\Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\HP\\OneDrive\\Masaüstü\\Backend\\FiorelloBack\\P512FiorelloBack\\Areas\\Dashboard\\Views\\User\\AddRole.cshtml",
+      "TargetPath": "Areas\\Dashboard\\Views\\User\\AddRole.cshtml",
       "FileKind": "mvc"
     },
     {

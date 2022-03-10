@@ -1,0 +1,46 @@
+﻿@model AddRoleVM
+@{
+    ViewData["Title"] = "AddRole";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Add role</h4>
+                        <form class="forms-sample" method="post" asp-controller="User" asp-action="AddRole">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Name</label>
+                                <select class="form-control" asp-for="RoleName">
+                                    @foreach (var role in Model.Roles)
+                                    {
+                                        <option>@role</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="RoleName" class="text-danger"></span>
+                            </div>
+                      
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ @section Scripts{
+<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+
+         <script>
+    ClassicEditor
+        .create( document.querySelector( '#Description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
+         }

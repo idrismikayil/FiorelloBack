@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using P512FiorelloBack.Areas.Dashboard.ViewModels;
@@ -16,6 +17,8 @@ using System.Threading.Tasks;
 namespace P512FiorelloBack.Areas.Dashboard.Controllers
 {
     [Area("Dashboard")]
+    [Authorize(Roles = RoleConstants.Admin)]
+
     public class SliderController : Controller
     {
         private readonly AppDbContext _context;

@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using P512FiorelloBack.Constants;
 using P512FiorelloBack.DAL;
+using P512FiorelloBack.Models;
+using P512FiorelloBack.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +20,6 @@ namespace P512FiorelloBack
 {
     public class Startup
     {
-
         private readonly IWebHostEnvironment _env;
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
@@ -34,11 +36,25 @@ namespace P512FiorelloBack
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
 
+            services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 5;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedEmail = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+
+            services.AddScoped<IMailService, MailService>();
+
             services.AddControllersWithViews();
+
             services.AddDbContext<AppDbContext>(option => {
                 option.UseSqlServer(Configuration.GetConnectionString("Default"));
-
             });
+
             FileConstants.ImagePath = Path.Combine(_env.WebRootPath, "assets", "images");
         }
 
@@ -59,7 +75,7 @@ namespace P512FiorelloBack
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
