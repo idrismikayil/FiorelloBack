@@ -12,6 +12,10 @@
   <!-- endinject -->
   <!-- plugin css for this page -->
   <link rel="stylesheet" href="~/Admin/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+ <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <!-- select2-bootstrap4-theme -->
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+    <!-- End plugin css for this page -->
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="~/Admin/assets/css/style.css">
@@ -236,6 +240,20 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" asp-controller="Layout" asp-action="Index">List</a></li>
                 <li class="nav-item"> <a class="nav-link" asp-controller="Layout" asp-action="Create">New</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+              aria-controls="ui-basic">
+              <i class="mdi mdi-circle-outline menu-icon"></i>
+              <span class="menu-title">Flower List</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" asp-controller="Flower" asp-action="Index">List</a></li>
+                <li class="nav-item"> <a class="nav-link" asp-controller="Flower" asp-action="Create">New</a></li>
               </ul>
             </div>
           </li>

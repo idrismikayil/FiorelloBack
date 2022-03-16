@@ -19,12 +19,15 @@ namespace P512FiorelloBack.Areas.Dashboard.Controllers
         private AppDbContext _dbContext;
         private RoleManager<IdentityRole> _roleManager;
         private UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public UserController(AppDbContext dbContext, RoleManager<IdentityRole> roleManager, UserManager<User> userManager)
+
+        public UserController(AppDbContext dbContext, RoleManager<IdentityRole> roleManager, UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _dbContext = dbContext;
             _roleManager = roleManager;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         public async Task<IActionResult> Index()
         {
@@ -38,7 +41,8 @@ namespace P512FiorelloBack.Areas.Dashboard.Controllers
                     Id = user.Id,
                     Username = user.UserName,
                     Fullname = user.Fullname,
-                    Roles = string.Join(", ", await _userManager.GetRolesAsync(user))
+                    Roles = string.Join(", ", await _userManager.GetRolesAsync(user)),
+                    isActive = user.isActive
                 }) ;
             }
 
@@ -130,28 +134,44 @@ namespace P512FiorelloBack.Areas.Dashboard.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Block(string id)
-        //{
-        //    var user = await _userManager.FindByIdAsync(id);
-        //    if (user == null) return NotFound();
 
-        //    await _userManager.SetLockoutEnabledAsync(user, true);
-            
-        //    return View();
-        //}
+        public async Task<IActionResult> ToggleBlock(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> UnBlock(string id)
-        //{
-        //    var user = await _userManager.FindByIdAsync(id);
-        //    if (user == null) return NotFound();
+            user.isActive = !user.isActive;
 
-        //    await _userManager.SetLockoutEnabledAsync(user, false);
+            _dbContext.Users.Update(user);
+            await _dbContext.SaveChangesAsync();
 
-        //    return View();
-        //}
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Block(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+
+            user.isActive = false;
+
+            _dbContext.Users.Update(user);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> UnBlock(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null) return NotFound();
+
+            user.isActive = true;
+
+            _dbContext.Users.Update(user);
+            await _dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
     }
 }

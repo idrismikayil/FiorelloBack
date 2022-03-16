@@ -41,7 +41,7 @@ namespace P512FiorelloBack
                 options.Password.RequiredLength = 5;
                 options.User.RequireUniqueEmail = true;
                 options.SignIn.RequireConfirmedEmail = true;
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+                //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
 
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 

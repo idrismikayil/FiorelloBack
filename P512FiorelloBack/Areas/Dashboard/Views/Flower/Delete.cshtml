@@ -1,0 +1,70 @@
+﻿@model Flower
+@{
+    ViewData["Title"] = "Delete";
+}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">@Model.Name</h4>
+
+                        <p>
+                            Desc:
+                            @Html.Raw(Model.Desc)
+                        </p>
+                        <p>
+                            Price :
+                            @Model.Price
+                        </p>
+                        <p>
+                            Weight :
+                            @Model.Weight
+                        </p>
+                        <p>
+                            Dimension :
+                            @Model.Dimension
+                        </p>
+                        <p>
+                            MainImage:
+                            <img style="width: 300px;" src="~/assets/images/@Model.MainImage" />
+                        </p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            @foreach (var image in Model.FlowerImages)
+                            {
+                                <img style="width: 200px; margin: 5px;" src="~/assets/images/@image.Name" />
+                            }
+                        </div>
+
+                        @if (Model.Comments != null)
+                        {
+                            @foreach (var comment in Model.Comments)
+                            {
+                                <div class="col-12 d-flex pb-2">
+                                    <div class="personImg">
+                                        <img src="~/assets/images/productPerson1.png" alt="" />
+                                    </div>
+                                    <div class="personBody mx-3">
+                                        <div class="person-name d-flex my-4">
+                                            <p>@comment.User.Fullname</p>
+                                            <p class="mx-2">@comment.CreatedAt.ToString("dd.MM.yyyy")</p>
+                                        </div>
+                                        <div class="person-description my-3">
+                                            <p style="font-family: Lora, serif">
+                                                @comment.Description
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                         <p>Are you sure ?</p>
+                  <form style="display: inline-block" method="post" asp-action="Delete"><button class="btn btn-secondary" type="submit">Submit</button></form>
+                   <a class="btn btn-primary" asp-action="Index">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

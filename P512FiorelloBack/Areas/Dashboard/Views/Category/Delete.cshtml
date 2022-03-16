@@ -14,9 +14,9 @@
                   <p>
                    @Html.Raw(Model.Description)
                   </p>
-                  <p>Eminsinizmi ?</p>
-                  <form method="post" asp-action="Delete"><button class="btn btn-secondary" type="submit">Submit</button></form>
-                  <a asp-action="Index">Cancel</a>
+                   <p>Are you sure ?</p>
+                  <form style="display: inline-block" method="post" asp-action="Delete"><button class="btn btn-secondary" type="submit">Submit</button></form>
+                   <a class="btn btn-primary" asp-action="Index">Cancel</a>
                 </div>
               </div>
             </div>

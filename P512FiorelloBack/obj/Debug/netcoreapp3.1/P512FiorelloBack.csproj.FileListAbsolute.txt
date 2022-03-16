@@ -483,3 +483,9 @@ C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\GetRoles.cshtml.g.cs
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\AddRole.cshtml.g.cs
 C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\User\ChangePassword.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Flower\Index.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Flower\Delete.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Flower\Detail.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Flower\Create.cshtml.g.cs
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\HP\OneDrive\Masaüstü\Backend\FiorelloBack\P512FiorelloBack\obj\Debug\netcoreapp3.1\Razor\Areas\Dashboard\Views\Flower\Update.cshtml.g.cs

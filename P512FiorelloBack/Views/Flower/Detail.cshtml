@@ -1,4 +1,4 @@
-﻿@model Flower
+﻿@model FlowerDetailVM
 @{
     ViewData["Title"] = "Detail";
     List<Flower> related = ViewBag.Related;
@@ -21,7 +21,6 @@
         </div>
     </div>
 </header>
-
 <main>
     <section id="product" class="mt-5">
         <div class="container">
@@ -29,34 +28,34 @@
                 <div class="col-lg-6 col-12 images">
                     <div class="customFlex">
                         <div class="col-lg-3 col-12">
-                            @foreach (FlowerImage item in Model.FlowerImages)
+                            @foreach (FlowerImage item in Model.Flower.FlowerImages)
                             {
                                 <img class="My" src="~/assets/images/@item.Name" alt="" />
                             }
 
                         </div>
                         <div class="col-lg-9 col-12">
-                            <img src="~/assets/images/@Model.MainImage" alt="" />
+                            <img src="~/assets/images/@Model.Flower.MainImage" alt="" />
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-12 productInfo">
                     <div class="productName">
-                        <p class="">@Model.Name</p>
-                        @if (Model.DiscountPrice == null)
+                        <p class="">@Model.Flower.Name</p>
+                        @if (Model.Flower.DiscountPrice == null)
                         {
 
 
-                            <span>$@Model.Price</span>
+                            <span>$@Model.Flower.Price</span>
                         }
                         else
                         {
-                            <span style="text-decoration:line-through">$@Model.Price</span><br />
-                            <span>$@Model.DiscountPrice</span>
+                            <span style="text-decoration:line-through">$@Model.Flower.Price</span><br />
+                            <span>$@Model.Flower.DiscountPrice</span>
                         }
                         <div class="productBody">
                             <p>
-                                @Model.Desc
+                                @Model.Flower.Desc
                             </p>
                             <div class="quantity">
                                 <div class="quantity-body">
@@ -70,10 +69,10 @@
                                 <button>ADD TO CART</button>
                             </div>
                             <div class="productMeta d-flex flex-column">
-                                <span>SKU: <span>@Model.SKUCode</span></span>
+                                <span>SKU: <span>@Model.Flower.SKUCode</span></span>
                                 <span>Tags: <span>Llilies, Orchids</span></span>
                                 <span>Categories: <span>
-                                     @foreach (FlowerCategory flowerCategory in Model.FlowerCategories)
+                                     @foreach (FlowerCategory flowerCategory in Model.Flower.FlowerCategories)
                                      {
                                          @(flowerCategory.Category.Name + " ")
                                      }
@@ -104,7 +103,7 @@
                 <div class="cards descriptionContent">
                     <p class="descriptionName">The power of flowers</p>
                     <p>
-                       @Model.Desc
+                       @Model.Flower.Desc
                     </p>
                 </div>
                 <div class="cards informationContent d-none">
@@ -112,7 +111,7 @@
                         <tbody>
                             <tr>
                                 <th>Weight:</th>
-                                <td>@Model.Weight</td>
+                                <td>@Model.Flower.Weight</td>
                             </tr>
                             <tr class="
                       woocommerce-product-attributes-item
@@ -122,7 +121,7 @@
                                     Dimensions:
                                 </th>
                                 <td class="woocommerce-product-attributes-item__value">
-                                    @Model.Dimension cm
+                                    @Model.Flower.Dimension cm
                                 </td>
                             </tr>
                         </tbody>
@@ -130,65 +129,46 @@
                 </div>
                 <div class="cards reviews d-none">
                     <p class="header">Reviews</p>
-                    <div class="col-12 d-flex pb-2">
-                        <div class="personImg">
-                            <img src="~/assets/images/productPerson1.png" alt="" />
-                        </div>
-                        <div class="personBody mx-3">
-                            <div class="person-name d-flex my-4">
-                                <p>JOSHUA GARCIA</p>
-                                <p class="mx-2">27.04.208</p>
+
+                    @foreach (var comment in Model.Flower.Comments)
+                    {
+                        <div class="col-12 d-flex pb-2">
+                            <div class="personImg">
+                                <img src="~/assets/images/productPerson1.png" alt="" />
                             </div>
-                            <div class="person-description my-3">
-                                <p style="font-family: Lora, serif">
-                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-                                    Theme natoque penatibus et magnis dis parturient montes,
-                                    nascetur ridiculus mus.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 d-flex">
-                        <div class="personImg">
-                            <img src="~/assets/images/productPerson2.png" alt="" />
-                        </div>
-                        <div class="personBody mx-3">
-                            <div class="person-name d-flex my-3">
-                                <p>JOAN STANLEY</p>
-                                <p class="mx-2">27.04.208</p>
-                            </div>
-                            <div class="person-description my-3">
-                                <p style="font-family: Lora, serif">
-                                    Etiam rhoncus. Maecenas tempus, tellus eget condimentum
-                                    rhoncus, sem quam semper libero, sit amet adipiscing sem
-                                    neque sed ipsum. Nam quam nunc, blandit vel, luctus
-                                    pulvinar, hendrerit
-                                </p>
+                            <div class="personBody mx-3">
+                                <div class="person-name d-flex my-4">
+                                    <p>@comment.User.Fullname</p>
+                                    <p class="mx-2">@comment.CreatedAt.ToString("dd.MM.yyyy")</p>
+                                </div>
+                                <div class="person-description my-3">
+                                    <p style="font-family: Lora, serif">
+                                        @comment.Description
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="addReview mt-3">
-                        <p>Add a review</p>
-                    </div>
-                    <form class="col-12 form">
-                        <p class="p-0 m-0">
-                            Your email address will not be published. Required fields are
-                            marked *
-                        </p>
-                        <p>Your review *</p>
-                        <textarea required name="review" cols="45" rows="8"></textarea>
-                        <p class="pb-0 mt-1 mb-0">Name *</p>
-                        <input required type="text" />
-                        <p class="pb-0 mt-1 mb-0">Email *</p>
-                        <input required type="email" />
-                        <input type="checkbox" />
-                        <p class="mt-2">
-                            Save my name, email, and website in this browser for the next
-                            time I comment.
-                        </p>
-                        <input type="submit" value="SUBMIT" />
-                    </form>
+                    }
+
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="addReview mt-3">
+                            <p>Add a review</p>
+                        </div>
+                        <form class="col-12 form" asp-controller="Flower" asp-action="AddComment" asp-route-id="@Model.Flower.Id" method="post">
+                            <p class="p-0 m-0">
+                                Your email address will not be published. Required fields are
+                                marked *
+                            </p>
+                            <p>Your review *</p>
+                            <textarea asp-for="Comment.Description" required cols="45" rows="8"></textarea>
+                            <span class="text-danger" asp-validation-for="Comment.Description"></span>
+                            <button type="submit">Submit</button>
+                        </form>
+                    }
+
                 </div>
             </div>
         </div>
@@ -223,7 +203,6 @@
                                 </div>
                             </div>
                         </div>
-
                     }*@
 
                 </div>
@@ -231,4 +210,3 @@
         </div>
     </section>
 </main>
-

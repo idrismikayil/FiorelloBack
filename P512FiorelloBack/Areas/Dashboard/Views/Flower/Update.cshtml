@@ -1,0 +1,108 @@
+﻿@model FlowerPostVM
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update Flower</h4>
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Name</label>
+                                <input asp-for="Name" class="form-control" placeholder="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Description</label>
+                                <textarea asp-for="Desc" class="form-control" placeholder="Desc"></textarea>
+                                <span asp-validation-for="Desc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Price</label>
+                                <input asp-for="Price" class="form-control" placeholder="Price">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                  
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Weight</label>
+                                <input asp-for="Weight" class="form-control" placeholder="Weight">
+                                <span asp-validation-for="Weight" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Dimension</label>
+                                <input asp-for="Dimension" class="form-control" placeholder="Dimension">
+                                <span asp-validation-for="Dimension" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">SKUCode</label>
+                                <input asp-for="SKUCode" class="form-control" placeholder="SKUCode">
+                                <span asp-validation-for="SKUCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">MainImage</label>
+                                <input asp-for="MainImage" accept="image/*" class="form-control" placeholder="MainImage">
+                                <span asp-validation-for="MainImage" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Images</label>
+                                <input asp-for="Images" accept="image/*" class="form-control" placeholder="Images">
+                                <span asp-validation-for="Images" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Campaign</label>
+                                <select class="form-control" asp-for="CampaignId">
+                                    <option></option>
+                                    @foreach (var campaign in Model.Campaigns)
+                                    {
+                                        <option value="@campaign.Id">@campaign.DiscountPercent</option>
+                                    }
+                                </select>
+
+                                <span asp-validation-for="CampaignId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Categories</label>
+                                <select class="form-control" asp-for="CategoryIds">
+                                    @foreach (var cat in Model.Categories)
+                                    {
+                                        <option value="@cat.Id">@cat.Name</option>
+                                    }
+                                </select>
+
+                                <span asp-validation-for="CategoryIds" class="text-danger"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <a class="btn btn-light" asp-action="Index">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js" integrity="sha512-o6XqxgrUsKmchwy9G5VRNWSSxTS4Urr4loO6/0hYdpWmFUfHqGzawGxeQGMDqYzxjY9sbktPbNlkIQJWagVZQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/js/select2.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Desc'))
+            .catch(error => {
+                console.error(error);
+            });
+        $("#CategoryIds").select2({
+            placeholder: "Select multiple categories",
+            theme: "bootstrap4",
+            allowClear: true
+        });
+    </script>
+
+}

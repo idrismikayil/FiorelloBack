@@ -45,20 +45,21 @@
                           <td>
                           <a class="btn btn-primary" asp-controller="User" asp-action="GetRoles" asp-route-id="@user.Id">Manage Roles</a>
                           <a class="btn btn-warning" asp-controller="User" asp-action="ChangePassword" asp-route-id="@user.Id">Change Password</a>
-                          @*@if(user.IsActive != true)
+                          @if(user.isActive)
                           {
-                          <a class="btn btn-danger" asp-action="Block" asp-route-id="@user.Id">Block</a>
+                          <a class="btn btn-danger" asp-action="ToggleBlock" asp-route-id="@user.Id">Block</a>
                           }
                           else{
-                           <a class="btn btn-danger" asp-action="UnBlock" asp-route-id="@user.Id">Unblock</a>
-                          }*@
-                          <a class="btn btn-danger" asp-action="Block" asp-route-id="@user.Id">Block</a>
+                          <a class="btn btn-danger" asp-action="ToggleBlock" asp-route-id="@user.Id">Unblock</a>
+                          }
+                          @*<a class="btn btn-danger" asp-action="Block" asp-route-id="@user.Id">Block</a>*@
 
                           </td>
                         </tr>
                       }
                       </tbody>
                     </table>
+
                   </div>
                 </div>
               </div>

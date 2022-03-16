@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using P512FiorelloBack.Constants;
 using System;
 using System.IO;
 
@@ -18,6 +19,15 @@ namespace P512FiorelloBack.Utilities
 
         public static void Delete(string fullPath)
         {
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+            }
+        }
+
+        public static void Delete2(string imageName)
+        {
+            string fullPath = Path.Combine(FileConstants.ImagePath, imageName);
             if (File.Exists(fullPath))
             {
                 File.Delete(fullPath);

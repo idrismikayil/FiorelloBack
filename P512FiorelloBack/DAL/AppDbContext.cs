@@ -23,5 +23,7 @@ namespace P512FiorelloBack.DAL
         public DbSet<Campaign> Campaigns { get; set; }
         public DbSet<FlowerImage> FlowerImages { get; set; }
         public DbSet<Layout> Layouts { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+
     }
 }

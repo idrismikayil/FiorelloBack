@@ -38,7 +38,14 @@ namespace P512FiorelloBack.Controllers
                 ModelState.AddModelError("", "Invalid credentials");
                 return View();
             }
-            var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, true, false);
+
+            if (!user.isActive)
+            {
+                ModelState.AddModelError("", "You are blocked");
+                return View();
+            }
+
+            var signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
             if (!signInResult.Succeeded)
             {
                 ModelState.AddModelError("", "Invalid credentials");
